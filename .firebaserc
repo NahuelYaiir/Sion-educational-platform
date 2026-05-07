@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "spotto-app-83049"
+  },
+  "targets": {
+    "spotto-app-83049": {
+      "hosting": {
+        "sionrecibos": [
+          "sion-recibos-web"
+        ]
+      }
+    }
+  }
+}

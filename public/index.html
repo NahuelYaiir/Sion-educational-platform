@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sion Instituto</title>
+  <meta name="description" content="Plataforma interna de Sion para recibos y gestión docente.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Cinzel:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./teacher-dashboard.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section id="loginScreen" class="login-screen">
+      <section class="auth-box auth-box-standalone login-card">
+        <div class="login-hero">
+          <img src="./assets/login-logo.jpg" alt="Logo Sion" class="login-logo">
+          <h1>Instituto Ministerial Sión</h1>
+        </div>
+
+        <div class="panel-head auth-head">
+          <div>
+            <p class="panel-kicker">Acceso</p>
+          </div>
+        </div>
+
+        <form id="loginForm" class="auth-form">
+          <label>
+            <span>Email</span>
+            <input id="emailInput" type="email" autocomplete="email" placeholder="tu@email.com">
+          </label>
+          <label>
+            <span>Contraseña</span>
+            <input id="passwordInput" type="password" autocomplete="current-password" placeholder="••••••••">
+          </label>
+          <div class="form-actions">
+            <button id="loginBtn" type="submit" class="btn btn-primary">Ingresar</button>
+          </div>
+          <p id="authFeedback" class="helper-text auth-feedback"></p>
+        </form>
+      </section>
+    </section>
+
+    <section id="appScreen" class="app-screen hidden">
+      <section class="intro-card">
+        <p class="eyebrow">Plataforma interna</p>
+        <h1>Instituto Ministerial Sión</h1>
+        <div class="usage-grid">
+          <article class="usage-card">
+            <h3>Recibos</h3>
+            <p>Emití comprobantes y descargalos con guardado automático en historial y Drive.</p>
+          </article>
+          <article class="usage-card">
+            <h3>Gestión docente</h3>
+            <p>Saltá entre materias, alumnos, asistencia y notas desde un tablero único.</p>
+          </article>
+          <article class="usage-card">
+            <h3>Corrección nocturna</h3>
+            <p>Glassmorphism oscuro y paneles rápidos para trabajar sin fatiga visual.</p>
+          </article>
+        </div>
+      </section>
+
+      <div id="appBanner" class="app-banner hidden"></div>
+
+      <section class="app-tabs">
+        <button id="tabReceiptsBtn" type="button" class="app-tab active">Recibos</button>
+        <button id="tabTeachersBtn" type="button" class="app-tab">Gestión docente</button>
+      </section>
+
+      <section id="receiptsTabPanel" class="workspace">
+        <aside class="control-panel">
+          <section class="auth-box">
+            <div class="panel-head auth-head">
+              <div>
+                <p class="panel-kicker">Sesión</p>
+                <h2>Cuenta activa</h2>
+              </div>
+              <p id="sessionLabelApp" class="panel-note">Sin sesión activa.</p>
+            </div>
+            <div class="session-actions">
+              <button id="logoutBtn" type="button" class="btn btn-ghost">Cerrar sesión</button>
+            </div>
+          </section>
+
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">Carga manual</p>
+              <h2>Datos del recibo</h2>
+            </div>
+            <p class="panel-note">Cada cambio actualiza la vista previa al instante.</p>
+          </div>
+
+          <form id="receiptForm" class="editor-form">
+            <div class="form-section">
+              <h3>Comprobante</h3>
+              <div class="field-grid two-cols">
+                <label>
+                  <span>Punto de venta</span>
+                  <input id="pointOfSaleInput" type="text" value="0001" maxlength="4">
+                </label>
+                <label>
+                  <span>Número</span>
+                  <input id="receiptNumberInput" type="text" value="0000070" maxlength="8">
+                </label>
+              </div>
+
+              <label>
+                <span>Fecha</span>
+                <input id="dateInput" type="date">
+              </label>
+            </div>
+
+            <div class="form-section">
+              <h3>Datos del alumno</h3>
+              <div class="field-grid two-cols">
+                <label>
+                  <span>Nombre</span>
+                  <input id="firstNameInput" type="text" value="Nahuel">
+                </label>
+                <label>
+                  <span>Apellido</span>
+                  <input id="lastNameInput" type="text" value="Gullifa">
+                </label>
+              </div>
+
+              <label>
+                <span>D.N.I.</span>
+                <input id="dniInput" type="text" placeholder="Documento">
+              </label>
+
+              <label>
+                <span>Concepto</span>
+                <input id="conceptInput" type="text" value="Bono contribucion">
+              </label>
+            </div>
+
+            <div class="form-section">
+              <h3>Datos de transferencia</h3>
+              <div class="field-grid two-cols">
+                <label>
+                  <span>Importe en número</span>
+                  <input id="amountInput" type="number" step="1" min="0" value="15000">
+                </label>
+                <label>
+                  <span>Importe en letra</span>
+                  <input id="amountWordsInput" type="text" placeholder="Se completa automático si lo dejás vacío">
+                </label>
+              </div>
+
+              <label>
+                <span>Titular de cuenta</span>
+                <input id="accountHolderInput" type="text" placeholder="Nombre del titular">
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button id="loadExampleBtn" type="button" class="btn btn-secondary">Cargar ejemplo</button>
+              <button id="clearBtn" type="button" class="btn btn-ghost">Limpiar</button>
+            </div>
+
+            <p class="helper-text">
+              El PDF se nombra automáticamente como <strong>Apellido-numeroRecibo.pdf</strong>. Al descargar, el sistema guarda el historial y también sube una copia a Drive si la integración está activa.
+            </p>
+          </form>
+        </aside>
+
+        <section class="preview-stage">
+          <div class="preview-toolbar">
+            <div>
+              <p class="panel-kicker">Vista previa</p>
+              <h2>Hoja imprimible</h2>
+            </div>
+            <button id="downloadPdfBtn" type="button" class="btn btn-primary">Descargar y guardar</button>
+          </div>
+
+          <article id="receiptSheet" class="receipt-sheet">
+            <header class="sheet-top">
+              <div class="brand-column">
+                <div class="brand-lockup brand-lockup-image">
+                  <img src="./assets/logo-reference.png" alt="Logo Instituto Ministerial Sion" class="brand-reference-image">
+                </div>
+
+                <div class="institution-data">
+                  <p>Bermúdez 455</p>
+                  <p>(1407) - Ciudad Autónoma de Buenos Aires</p>
+                  <p>Tel: +54 9 11 5003-7303</p>
+                  <p>Email: imsionarg@gmail.com</p>
+                  <p>www.institutoministerialsion.com.ar</p>
+                </div>
+              </div>
+
+              <div class="center-column">
+                <div class="invalid-box">X</div>
+                <p>Documento</p>
+                <p>No Válido</p>
+                <p>como</p>
+                <p>Factura</p>
+              </div>
+
+              <div class="receipt-meta-column">
+                <div class="receipt-title-block">
+                  <h3>RECIBO</h3>
+                  <div class="number-line">
+                    <span>N°</span>
+                    <span id="previewPointOfSale" class="number-heavy">0001</span>
+                    <span>-</span>
+                    <span id="previewReceiptNumber" class="number-box">0000070</span>
+                  </div>
+                </div>
+
+                <div class="date-line">
+                  <span>Fecha</span>
+                  <div class="date-boxes">
+                    <span id="previewDay" class="date-box">25</span>
+                    <span>/</span>
+                    <span id="previewMonth" class="date-box">02</span>
+                    <span>/</span>
+                    <span id="previewYear" class="date-box">2026</span>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            <section class="sheet-section">
+              <h4>DATOS DEL ALUMNO:</h4>
+
+              <div class="sheet-row two">
+                <div class="line-field">
+                  <span class="field-label">Nombre/S:</span>
+                  <span id="previewFirstName" class="line-value">Nahuel</span>
+                </div>
+
+                <div class="line-field">
+                  <span class="field-label">Apellido/S:</span>
+                  <span id="previewLastName" class="line-value">Gullifa</span>
+                </div>
+              </div>
+
+              <div class="sheet-row">
+                <div class="line-field compact">
+                  <span class="field-label">D.N.I.:</span>
+                  <span id="previewDni" class="line-value muted"></span>
+                </div>
+              </div>
+
+              <div class="sheet-row">
+                <div class="line-field">
+                  <span class="field-label">Concepto:</span>
+                  <span id="previewConcept" class="line-value">Bono contribucion</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="sheet-section transfer-section">
+              <h4>DATOS DE TRANSFERENCIA:</h4>
+
+              <div class="sheet-row two transfer-top">
+                <div class="line-field short">
+                  <span class="field-label">Importe en N°:</span>
+                  <span id="previewAmount" class="line-value">15 000</span>
+                </div>
+
+                <div class="line-field">
+                  <span class="field-label">Importe en Letra:</span>
+                  <span id="previewAmountWords" class="line-value">quince mil</span>
+                </div>
+              </div>
+
+              <div class="sheet-row">
+                <div class="line-field">
+                  <span class="field-label">Nombre de titular de Cuenta:</span>
+                  <span id="previewAccountHolder" class="line-value muted"></span>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <section class="history-box">
+            <div class="panel-head history-head">
+              <div>
+                <p class="panel-kicker">Historial</p>
+                <h2>Últimos recibos</h2>
+              </div>
+              <button id="refreshHistoryBtn" type="button" class="btn btn-ghost">Actualizar</button>
+            </div>
+            <div id="historyEmpty" class="history-empty">Iniciá sesión para ver el historial.</div>
+            <div id="historyList" class="history-list"></div>
+          </section>
+        </section>
+      </section>
+
+      <section id="teachersTabPanel" class="teacher-tab-panel hidden">
+        <div id="teacherDashboardMount"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="./env.js"></script>
+  <script type="module" src="./teacher-dashboard.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
