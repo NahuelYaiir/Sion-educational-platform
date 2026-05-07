@@ -1,6 +1,6 @@
 # Sion Recibos Web
 
-App web privada para gestionar recibos y operación docente de Sion desde una sola plataforma.
+Version publica y saneada de una plataforma web para gestión educativa y administración académica.
 
 ## Incluye
 
@@ -9,7 +9,18 @@ App web privada para gestionar recibos y operación docente de Sion desde una so
 - vista previa premium del recibo
 - descarga en PDF desde el navegador
 - historial reciente reutilizable
-- pestaña docente con materias, alumnos, inscripciones, asistencia y calificaciones reales
+- módulo docente con materias, alumnos, inscripciones, asistencia y calificaciones
+
+## Nota sobre esta version publica
+
+Este repo no incluye:
+
+- credenciales reales
+- ids reales de Google Drive o Google Sheets
+- URLs reales de Apps Script
+- configuraciones privadas de Supabase
+
+Los archivos de configuracion fueron reemplazados por placeholders para poder compartir el proyecto en GitHub y LinkedIn sin exponer información sensible.
 
 ## Estructura
 
@@ -97,9 +108,11 @@ Con eso vas a poder exportar:
 - presentismo a la hoja `presentismo`
 - notas a la hoja `notas`
 
-Ya te dejé un script base en [google_apps_script/Code.gs](/Users/nahuel/Documents/Playground/sion_recibos_web/google_apps_script/Code.gs) apuntando a esta carpeta:
+Ya te dejé un script base en [google_apps_script/Code.gs](/Users/nahuel/Documents/Playground/sion_recibos_web/google_apps_script/Code.gs) usando placeholders para:
 
-[`https://drive.google.com/drive/folders/1hhbvZdn1KP26lvpLEe4e6O6O3DXP2kwz`](https://drive.google.com/drive/folders/1hhbvZdn1KP26lvpLEe4e6O6O3DXP2kwz)
+- `YOUR_DRIVE_FOLDER_ID`
+- `YOUR_WEB_APP_ID`
+- `YOUR_SPREADSHEET_ID`
 
 ### Cómo activarlo
 

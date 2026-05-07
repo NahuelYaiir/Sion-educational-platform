@@ -1,4 +1,4 @@
-const DRIVE_FOLDER_ID = '1hhbvZdn1KP26lvpLEe4e6O6O3DXP2kwz';
+const DRIVE_FOLDER_ID = 'YOUR_DRIVE_FOLDER_ID';
 
 function doPost(e) {
   try {
